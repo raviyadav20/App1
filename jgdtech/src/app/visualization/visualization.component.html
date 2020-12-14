@@ -1,0 +1,28 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+    <div fxFlex>
+        <div>
+            <h3>Visualization</h3>
+            <hr>
+        </div>
+    </div>
+
+    <div fxFlex>
+        <div fxFlex fxFlexOffset="20px" class="form-size">
+            <h3>Select Parameters to Visualization </h3>
+            <p>{{ visualizationForm.value | json }} {{ visualizationForm.status | json }}</p>
+
+            <form novalidate [formGroup]="visualizationForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+                <table class="form-size">
+                        <mat-select placeholder="Select State" formControlName="contacttype">
+                            <mat-option *ngFor="let ctype of contactType" [value]="ctype">
+                                {{ ctype }}
+                            </mat-option>
+                        </mat-select>
+                </table>
+                <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+            </form>
+        </div>
+
+
+    </div>

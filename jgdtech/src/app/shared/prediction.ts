@@ -3,7 +3,7 @@ export class Prediction {
     quantity: number;
     productCode: number;
     liveitemnumber: number;
-    materialnumber: boolean;
+    materialnumber: number;
     billingDate: string;
     districts: string;
     states: string;

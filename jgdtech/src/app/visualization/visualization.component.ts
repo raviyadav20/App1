@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-const ContactType = ['None', 'Tel', 'Email'];
+import { Visualize, States, Districts, Cities } from '../shared/visualize';
 
 
 @Component({
@@ -11,12 +10,15 @@ const ContactType = ['None', 'Tel', 'Email'];
 })
 export class VisualizationComponent implements OnInit {
 
-contactType = ContactType
-  visualizationForm:FormGroup;
+  states = States;
+  districts = Districts;
+  cities = Cities;
+  visualizationForm: FormGroup;
+  visualize:Visualize;
 
   constructor(private fb: FormBuilder) {
     this.createForm();
-   }
+  }
 
   ngOnInit(): void {
   }
@@ -24,15 +26,17 @@ contactType = ContactType
   createForm() {
 
     this.visualizationForm = this.fb.group({
-      State: [''],
-      District: [''],
-      City: [''],
-      contacttype: 'None',
+      states: '',
+      districts: '',
+      cities: ''
     });
   }
 
   onSubmit() {
-   console.log('Form Submit')
+    console.log('Form Submit')
+    this.visualize = this.visualizationForm.value;
+    console.log(this.visualize);
+    this.visualizationForm.reset();
   }
 
 

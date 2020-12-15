@@ -1,1 +1,25 @@
-<p>home works!</p>
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+    <div fxFlex>
+      <div>
+    <!--    <h3> <b> ARTIFICIAL INTELIGENCE </b> </h3> 
+        <br> -->
+      </div>
+    </div>
+  
+    <div fxFlex *ngIf="images">
+      <mat-grid-list cols="2" rowHeight="200px">
+        <mat-grid-tile *ngFor="let image of images" >
+          <img height="200px" src={{image.image}} alt={{image.name}}>
+          <mat-grid-tile-footer>
+            <h1> {{image.name | uppercase}} </h1>
+          </mat-grid-tile-footer>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+
+
+
+  

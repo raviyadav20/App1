@@ -9,18 +9,53 @@
 
     <div fxFlex>
         <div fxFlex fxFlexOffset="20px" class="form-size">
-            <h3>Select Parameters to Visualization </h3>
-            <p>{{ visualizationForm.value | json }} {{ visualizationForm.status | json }}</p>
+            <h3>Select Parameters to Visualization </h3> <br>
+         <!--   <p>{{ visualizationForm.value | json }} {{ visualizationForm.status | json }}</p> -->
 
             <form novalidate [formGroup]="visualizationForm" #fform="ngForm" (ngSubmit)="onSubmit()">
                 <table class="form-size">
-                        <mat-select placeholder="Select State" formControlName="contacttype">
-                            <mat-option *ngFor="let ctype of contactType" [value]="ctype">
-                                {{ ctype }}
+                    <td>
+                        <mat-label> <b>STATES  </b> </mat-label>
+                      </td>
+                    <td>
+                        <mat-select placeholder="Select State" formControlName="states">
+                            <mat-option *ngFor="let state of states" [value]="state">
+                              {{ state }}
                             </mat-option>
-                        </mat-select>
-                </table>
-                <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+                          </mat-select>
+                    </td>
+                  </table>
+                  <br> 
+
+                  <table class="form-size">
+                    <td>
+                        <mat-label> <b>DISTRICT</b> </mat-label>
+                      </td>
+                    <td>
+                        <mat-select placeholder="Select Dist" formControlName="districts">
+                            <mat-option *ngFor="let district of districts" [value]="district">
+                              {{ district }}
+                            </mat-option>
+                          </mat-select>
+                    </td>
+                  </table>
+                  <br> 
+
+                  <table class="form-size">
+                    <td>
+                        <mat-label> <b>CITIES</b> </mat-label>
+                      </td>
+                    <td>
+                        <mat-select placeholder="Select City" formControlName="cities">
+                            <mat-option *ngFor="let city of cities" [value]="city">
+                              {{ city }}
+                            </mat-option>
+                          </mat-select>
+                    </td>
+                  </table> <br>
+                <button type="submit" routerLink="/visualizeimage" routerLinkActive="active" mat-button class="background-primary text-floral-white">Watch Visualization</button>
+                <button type="submit" routerLink="/home" routerLinkActive="active" mat-button class="background-primary text-floral-white">Cancel</button>
+                
             </form>
         </div>
 

@@ -1,1 +1,115 @@
-<p>prediction works!</p>
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+    <div fxFlex>
+        <div>
+            <h2>Prediction</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div fxFlex>
+        <div fxFlex fxFlexOffset="20px" class="form-size">
+            <h3>Select Parameters to Predict </h3> <br>
+            <!--   <p>{{ visualizationForm.value | json }} {{ visualizationForm.status | json }}</p> -->
+
+            <form novalidate [formGroup]="predictionForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+                <h4> <i> Billing Type </i> </h4> <br>
+                <table class="form-size">
+                    <td>
+                        <mat-label>Sales Unit </mat-label>
+                    </td>
+                    <td>
+                        <mat-select placeholder="Select Sales Unit" formControlName="salesUnits">
+                            <mat-option *ngFor="let salesUnit of salesUnits" [value]="salesUnit">
+                                {{ salesUnit }}
+                            </mat-option>
+                        </mat-select>
+                    </td>
+                </table>
+                <br>
+
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="quantity" placeholder="Quantity" type="text">
+                    </mat-form-field>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="productCode" placeholder="Product Code" type="text">
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="liveItem" placeholder="Live Item" type="text">
+                    </mat-form-field>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="materialNumber" placeholder="Material Number" type="text">
+                    </mat-form-field>
+                </p>
+
+
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="billingDate" placeholder="Billing Date" type="text">
+                    </mat-form-field>
+                </p>
+                <br>
+
+                <h4> <i> Batch </i> </h4> <br>
+
+                <table class="form-size">
+                    <td>
+                        <mat-label>District </mat-label>
+                    </td>
+                    <td>
+                        <mat-select placeholder="Select District" formControlName="districts">
+                            <mat-option *ngFor="let district of districts" [value]="district">
+                                {{ district }}
+                            </mat-option>
+                        </mat-select>
+                    </td>
+                </table>
+                <br>
+                <table class="form-size">
+                    <td>
+                        <mat-label>State </mat-label>
+                    </td>
+                    <td>
+                        <mat-select placeholder="Select State" formControlName="states">
+                            <mat-option *ngFor="let state of states" [value]="state">
+                                {{ state }}
+                            </mat-option>
+                        </mat-select>
+                    </td>
+                </table>
+                <br>
+                <table class="form-size">
+                    <td>
+                        <mat-label>Plants </mat-label>
+                    </td>
+                    <td>
+                        <mat-select placeholder="Select Plant" formControlName="plants">
+                            <mat-option *ngFor="let plant of plants" [value]="plant">
+                                {{ plant }}
+                            </mat-option>
+                        </mat-select>
+                    </td>
+                </table>
+                <br>
+
+                <p>
+                    <mat-form-field class="half-width">
+                        <input matInput formControlName="freeQuantity" placeholder="Free Quantity" type="text">
+                    </mat-form-field>
+                </p>
+
+
+
+                <button type="submit" mat-button class="background-primary text-floral-white">Predict</button>
+                <button type="submit" routerLink="/home" routerLinkActive="active" mat-button
+                    class="background-primary text-floral-white">Cancel</button>
+
+            </form>
+        </div>
+
+
+    </div>

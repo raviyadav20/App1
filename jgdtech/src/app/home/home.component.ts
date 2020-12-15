@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Image} from '../shared/image';
+import { IMAGES } from '../shared/images';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  images = IMAGES;
 
   constructor() { }
 
